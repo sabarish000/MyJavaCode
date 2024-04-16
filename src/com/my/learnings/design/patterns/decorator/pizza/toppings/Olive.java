@@ -1,6 +1,6 @@
-package com.my.learnings.decorators.decorator.pizza.toppings;
+package com.my.learnings.design.patterns.decorator.pizza.toppings;
 
-import com.my.learnings.decorators.decorator.pizza.base.Pizza;
+import com.my.learnings.design.patterns.decorator.pizza.base.Pizza;
 
 public class Olive implements Pizza {
     Pizza pizza;

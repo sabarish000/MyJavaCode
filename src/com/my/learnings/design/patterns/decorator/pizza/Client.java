@@ -1,12 +1,12 @@
-package com.my.learnings.decorators.decorator.pizza;
+package com.my.learnings.design.patterns.decorator.pizza;
 
-import com.my.learnings.decorators.decorator.pizza.base.BBQChicken;
-import com.my.learnings.decorators.decorator.pizza.base.Margherita;
-import com.my.learnings.decorators.decorator.pizza.base.Pizza;
-import com.my.learnings.decorators.decorator.pizza.toppings.Cheese;
-import com.my.learnings.decorators.decorator.pizza.toppings.Olive;
-import com.my.learnings.decorators.decorator.pizza.toppings.Paneer;
-import com.my.learnings.decorators.decorator.pizza.toppings.Tomato;
+import com.my.learnings.design.patterns.decorator.pizza.base.BBQChicken;
+import com.my.learnings.design.patterns.decorator.pizza.base.Margherita;
+import com.my.learnings.design.patterns.decorator.pizza.base.Pizza;
+import com.my.learnings.design.patterns.decorator.pizza.toppings.Cheese;
+import com.my.learnings.design.patterns.decorator.pizza.toppings.Olive;
+import com.my.learnings.design.patterns.decorator.pizza.toppings.Paneer;
+import com.my.learnings.design.patterns.decorator.pizza.toppings.Tomato;
 
 /*
 *

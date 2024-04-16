@@ -1,4 +1,4 @@
-package com.my.learnings.decorators.decorator.pizza.base;
+package com.my.learnings.design.patterns.decorator.pizza.base;
 
 public class BBQChicken implements Pizza {
     @Override
