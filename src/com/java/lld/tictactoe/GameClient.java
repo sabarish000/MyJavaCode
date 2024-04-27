@@ -12,21 +12,30 @@ import com.java.lld.tictactoe.startegy.game.win.RowWinStrategy;
 import com.java.lld.tictactoe.startegy.game.win.WinStrategy;
 import com.java.lld.tictactoe.utils.PlayerValidator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class GameClient {
+    private static final int RETRIES = 3;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = null;
         Game game = null;
         do {
+            
             int dimension = 0;
             do {
-                System.out.println("Please enter number of players");
-                dimension = scanner.nextInt();
-            } while(dimension <=0);
+                scanner = new Scanner(System.in);
+                System.out.println("Please enter number of players: ");
+                try {
+                    if(scanner.hasNextInt()) {
+                        dimension = scanner.nextInt();
+                    }
+                } catch (InputMismatchException ime) {
+                    System.out.println("Invalid number of players, please try again!!");
+                    if(scanner.hasNextInt()) {
+                        dimension = scanner.nextInt();
+                    }
+                }
+            } while(dimension<=0);
             List<Player> players = new ArrayList<>();
             for(int i=0; i<dimension; i++) {
                 System.out.println("Please enter name for player"+i);
@@ -61,7 +70,8 @@ public class GameClient {
             int col = scanner.nextInt();
             try {
                 Move move = GameController.makeMove(game, new Cell(row, col));
-                GameController.checkWinner(game);
+                // GameController.checkWinner(game);
+                // GameController.printGameState(game);
                 if(!GameState.IN_PROGRESS.equals(game.getGameState()) ) {
                     GameController.printGameState(game);
                 }

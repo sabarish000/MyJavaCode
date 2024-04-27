@@ -10,10 +10,10 @@ public class Board {
     public Board(int dimension) {
         this.dimension = dimension;
         this.board = new ArrayList<>();
-        for(int r =0 ; r<dimension; r++) {
+        for(int r =0 ; r<=dimension; r++) {
             List<Cell> row = new ArrayList<>();
-            for(int c=0; c<dimension; c++) {
-                row.add(new Cell(r,c,CellType.EMPTY));
+            for(int c=0; c<=dimension; c++) {
+                row.add(new Cell(r,c));
             }
             this.board.add(row);
         }

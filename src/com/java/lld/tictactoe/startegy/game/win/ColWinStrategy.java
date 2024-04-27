@@ -7,6 +7,11 @@ import java.util.Map;
 
 public class ColWinStrategy implements WinStrategy{
     private Map<Integer, Map<Symbol, Integer>> colsFreqMap;
+
+    public ColWinStrategy() {
+        colsFreqMap = new HashMap<>();
+    }
+
     @Override
     public boolean checkWinner(Board board, Move move) {
         int col = move.getCell().getCol();

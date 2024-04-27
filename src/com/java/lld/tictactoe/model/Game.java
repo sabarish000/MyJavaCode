@@ -56,16 +56,18 @@ public class Game {
     }
 
     public Move makeMove(Cell cell) throws InvalidMoveException {
-        if(cell.isEmpty()) {
+        if(!cell.isEmpty()) {
             throw new InvalidMoveException("Invalid move, please provide a cell!");
         } else if(!isValidCell(cell)) {
             throw new InvalidMoveException("Invalid move, please provide a valid cell with in range!");
         }else  if(!this.board.isEmptyCell(cell)) {
             throw new InvalidMoveException("Invalid move, entered is cell is already occupied, please try again!");
         }
+        cell.setSymbol(players.get(nextPlayerIndex).getSymbol());
         Cell actualCell = this.board.updateCell(cell);
         Move move = new Move(actualCell, actualCell.getSymbol());
         this.moves.add(move);
+        board.printBoard();
         return move;
     }
 
@@ -82,12 +84,23 @@ public class Game {
         return new GameBuilder();
     }
 
-    public boolean isGameEnded() {
+    public void checkWinner(Move move) {
         // TODO
         // gameState = GameState.WIN;
 
         // gameState = GameState.DRAW;
-        return false;
+
+        for(WinStrategy winStrategy: winStrategies) {
+            if(winStrategy.checkWinner(board, move)) {
+                winner = players.get(nextPlayerIndex);
+                gameState = GameState.WIN;
+            }
+        }
+        nextPlayerIndex = ++nextPlayerIndex%dimension;
+        // State is not WIN and does all the moves12
+        if(gameState.equals(GameState.IN_PROGRESS) && (dimension+1) *(dimension+1) == moves.size()) {
+            gameState = GameState.DRAW;
+        }
     }
 
     public static class GameBuilder {

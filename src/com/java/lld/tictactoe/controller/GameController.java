@@ -18,15 +18,16 @@ public class GameController {
     }
 
     public static  Move makeMove(Game game, Cell cell) throws InvalidMoveException {
-        return game.makeMove(cell);
+        Move move = game.makeMove(cell);
+        game.checkWinner(move);
+        return move;
     }
 
-    public static void checkWinner(Game game) {
-        if(game.isGameEnded()) {
-            printGameState(game);
-        }
-    }
-
+//    public static void checkWinner(Game game) {
+//        if(!game.isGameEnded()) {
+//            // printGameState(game);
+//        }
+//    }
     public static void printGameState(Game game) {
         if(GameState.WIN.equals(game.getGameState())) {
             System.out.println(game.getWinner().getName() + " has won the game!!!");

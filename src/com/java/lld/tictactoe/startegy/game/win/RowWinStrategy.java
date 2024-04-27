@@ -10,6 +10,10 @@ import java.util.Map;
 public class RowWinStrategy implements WinStrategy {
     private Map<Integer,Map<Symbol, Integer>> rowsFreqMap;
 
+    public RowWinStrategy() {
+        rowsFreqMap = new HashMap<>();
+    }
+
     @Override
     public boolean checkWinner(Board board, Move move) {
         int row = move.getCell().getRow();
